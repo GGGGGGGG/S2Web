@@ -1,3 +1,3 @@
 # S2Web
 
-Small project used to learn about the restful api + django
+Website for a dead game written in PHP with the laravel framework.
