@@ -25,10 +25,7 @@ class CreateServers extends Migration
             $table->integer('maxlevel');
             $table->integer('official');
             $table->timestamp('updated');
-
-
-            $table->foreign('server')->references('id')->on('servers');
-            $table->foreign('map')->references('id')->on('maps');
+            
         });
     }
 
