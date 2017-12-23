@@ -28,6 +28,18 @@ class User extends Authenticatable
     ];
 
     public function actionplayer(){
-        return $this->hasMany('App\Actionplayer');
+        return $this->hasMany('App\Actionplayer', 'user', 'id');
+    }
+
+    public function playerstat(){
+        return $this->hasOne('App\Playerstat', 'account_id', 'id');
+    }
+
+    public function playerinfo(){
+        return $this->hasOne('App\Playerinfo', 'account_id', 'id');
+    }
+
+    public function commanderstat(){
+        return $this->hasOne('App\Commanderstat', 'account_id', 'id');
     }
 }

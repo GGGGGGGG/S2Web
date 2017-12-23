@@ -25,7 +25,7 @@ class CreateServers extends Migration
             $table->integer('maxlevel');
             $table->integer('official');
             $table->timestamp('updated');
-
+            $table->boolean('online');
         });
     }
 
