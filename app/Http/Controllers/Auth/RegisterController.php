@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Commanderstat;
+use App\Playerinfo;
+use App\Playerstat;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -62,10 +65,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $commanderstat = new Commanderstat();
+        $commanderstat->account_id = $user->id;
+        $commanderstat->save();
+
+        $playerstat = new Playerstat();
+        $playerstat->account_id = $user->id;
+        $playerstat->save();
+
+        $playerinfo = new Playerinfo();
+        $playerinfo->account_id = $user->id;
+        $playerinfo->save();
+
+        return $user;
+
     }
 }

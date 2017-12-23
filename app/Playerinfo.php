@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Playerinfo extends Model
 {
+    public $timestamps = false;
+
     protected $fillable = [
         'account_id', 'overall_r', 'sf', 'lf', 'level', 'clan_id', 'karma'
     ];

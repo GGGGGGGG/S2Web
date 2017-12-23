@@ -15,23 +15,23 @@ class CreateCommanderstats extends Migration
     {
         Schema::create('commanderstats', function (Blueprint $table) {
             $table->increments('account_id');
-            $table->integer('c_wins');
-            $table->integer('c_losses');
-            $table->integer('c_d_conns');
-            $table->integer('c_exp');
-            $table->integer('c_earned_exp');
-            $table->integer('c_builds');
-            $table->integer('c_gold');
-            $table->integer('c_razed');
-            $table->integer('c_hp_healed');
-            $table->integer('c_pdmg');
-            $table->integer('c_kills');
-            $table->integer('c_assists');
-            $table->integer('c_debuffs');
-            $table->integer('c_buffs');
-            $table->integer('c_orders');
-            $table->integer('c_secs');
-            $table->integer('c_winstreak');
+            $table->integer('c_wins')->default('0');
+            $table->integer('c_losses')->default('0');
+            $table->integer('c_d_conns')->default('0');
+            $table->integer('c_exp')->default('0');
+            $table->integer('c_earned_exp')->default('0');
+            $table->integer('c_builds')->default('0');
+            $table->integer('c_gold')->default('0');
+            $table->integer('c_razed')->default('0');
+            $table->integer('c_hp_healed')->default('0');
+            $table->integer('c_pdmg')->default('0');
+            $table->integer('c_kills')->default('0');
+            $table->integer('c_assists')->default('0');
+            $table->integer('c_debuffs')->default('0');
+            $table->integer('c_buffs')->default('0');
+            $table->integer('c_orders')->default('0');
+            $table->integer('c_secs')->default('0');
+            $table->integer('c_winstreak')->default('0');
 
             $table->foreign('account_id')->references('id')->on('users');
         });

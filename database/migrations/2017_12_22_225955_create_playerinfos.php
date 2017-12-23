@@ -15,12 +15,12 @@ class CreatePlayerinfos extends Migration
     {
         Schema::create('playerinfos', function (Blueprint $table) {
             $table->integer('account_id');
-            $table->integer('overall_r');
-            $table->integer('sf');
-            $table->integer('lf');
-            $table->integer('level');
-            $table->integer('clan_id');
-            $table->integer('karma');
+            $table->integer('overall_r')->default('0');
+            $table->integer('sf')->default('0');
+            $table->integer('lf')->default('0');
+            $table->integer('level')->default('0');
+            $table->integer('clan_id')->default('0');
+            $table->integer('karma')->default('0');
 
 
 
