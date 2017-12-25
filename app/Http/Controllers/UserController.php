@@ -18,4 +18,8 @@ class UserController extends Controller
         return view('user.show')->with('user', $user);
     }
 
+    public function banned()
+    {
+        return view('banned');
+    }
 }
