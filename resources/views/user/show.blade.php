@@ -6,8 +6,12 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="user-header">
                     <h1>@if ($user->playerinfo)
-                            {{$user->playerinfo->overall_r }} [{{ $user->playerinfo->clan->clan_tag }}]
-                        @endif {{$user->username}}</h1>
+                            {{$user->playerinfo->overall_r }}
+                            @endif
+                        @if ($user->playerinfo->clan)
+                            [{{ $user->playerinfo->clan->clan_tag }}] 
+                        @endif
+                        {{$user->username}}</h1>
                 </div>
                 <div class="content">
                     <div class="col-md-4">
