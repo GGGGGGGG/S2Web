@@ -9,7 +9,7 @@
                             {{$user->playerinfo->overall_r }}
                             @endif
                         @if ($user->playerinfo->clan)
-                            [{{ $user->playerinfo->clan->clan_tag }}] 
+                            [{{ $user->playerinfo->clan->clan_tag }}]
                         @endif
                         {{$user->username}}</h1>
                 </div>
@@ -20,8 +20,10 @@
                     </div>
                     <div class="col-md-4">
                         <h2>General Stats:</h2>
-                        @if($user->playerinfo)
+                        @if($user->playerinfo->clan)
                             Clan: {{ $user->playerinfo->clan->clan_name }}<br>
+                        @endif
+                        @if($user->playerinfo)
                             Skill Factor : {{ $user->playerinfo->sf }}<br>
                             Level: {{ $user->playerinfo->level }}<br>
                             Karma: {{ $user->playerinfo->karma }}<br>
