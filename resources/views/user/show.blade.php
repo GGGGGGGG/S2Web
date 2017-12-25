@@ -16,6 +16,11 @@
                 <div class="content">
                     <div class="col-md-4">
                         <h2>Profile:</h2>
+                        @foreach($user->bans as $ban)
+                            @if($ban->banneduntil > \Carbon\Carbon::now()->format('Y-m-d H:i:s'))
+                                This user is currently banned.
+                            @endif
+                        @endforeach
                         Coming soon!
                     </div>
                     <div class="col-md-4">
