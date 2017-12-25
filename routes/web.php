@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user/{user}', 'UserController@show')->name('user.show');
 Route::get('/user/{user}/edit', 'UserController@edit')->name('user.edit');
@@ -27,6 +27,4 @@ Route::middleware('auth')->group(function () {
     Route::put('/user/{user}', 'UserController@update')->name('user.update');
 });
 
-Route::middleware('banned')->group(function () {
-    Route::get('/banned', 'UserController@banned')->name('user.banned');
-});
+Route::get('/banned', 'UserController@banned')->name('user.banned');
