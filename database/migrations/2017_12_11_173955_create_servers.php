@@ -20,6 +20,7 @@ class CreateServers extends Migration
             $table->integer('num_conn');
             $table->integer('max_conn');
             $table->string('name');
+            $table->string('login');
             $table->string('description');
             $table->integer('minlevel');
             $table->integer('maxlevel');

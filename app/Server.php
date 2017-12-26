@@ -9,6 +9,6 @@ class Server extends Model
     const UPDATED_AT = 'updated';
 
     protected $fillable = [
-        'ip', 'port', 'num_conn', 'max_conn', 'name', 'description', 'minlevel', 'maxlevel', 'official', 'online'
+        'ip', 'port', 'num_conn', 'max_conn', 'name', 'login', 'description', 'minlevel', 'maxlevel', 'official', 'online'
     ];
 }
