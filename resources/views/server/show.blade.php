@@ -3,8 +3,11 @@
 @section('content')
     <br>
     <div class="container">
-        <div class="jumbotron">
-            <h1 class="h1-responsive">{{ $server->id }}. {{ $server->name }}</h1>
+        <div class="card">
+            <div class="card-header mdb-color lighten-1 white-text">
+                {{ $server->id }}. {{ $server->name }}
+            </div>
+            <div class="card-body">
                             <b>Players currently online on this server:</b><br>
                             @foreach($server->players as $player)
                                 @if($player->online == 1)
