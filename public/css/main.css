@@ -1,0 +1,44 @@
+.scard{
+    height: 500px;
+}
+
+body {
+    padding-bottom: 200px;
+}
+/* Style all font awesome icons */
+.fab {
+    background-color: #333;
+    border-radius: 30px;
+    color: #fff;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin: auto 3px;
+    width: 30px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.fab:hover {
+    opacity: 0.5;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-twitch {
+    background: #6441A4;
+    color: white;
+}
+
+.fa-discord {
+    background: #7289DA;
+    color: white;
+}

@@ -19,6 +19,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/download', 'DownloadController@index')->name('download.index');
+Route::get('/download/{category}', 'DownloadController@show')->name('download.show');
+
+Route::get('/server', 'ServerController@index')->name('server.index');
+Route::get('/server/{server}', 'ServerController@show')->name('server.show');
+
 Route::middleware('auth')->group(function () {
     Route::get('/user/edit', 'UserController@edit')->name('user.edit');
     Route::put('/user/{user}', 'UserController@update')->name('user.update');

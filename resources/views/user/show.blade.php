@@ -1,21 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+    <br>
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="user-header">
-                    <h1>@if ($user->playerinfo)
-                            {{$user->playerinfo->overall_r }}
-                            @endif
-                        @if ($user->playerinfo->clan)
-                            [{{ $user->playerinfo->clan->clan_tag }}]
-                        @endif
-                        {{$user->username}}</h1>
-                </div>
-                <div class="content">
+        <div class="card">
+            <div class="card-header mdb-color lighten-1 white-text">
+                @if ($user->playerinfo)
+                        {{$user->playerinfo->overall_r }}
+                    @endif
+                    @if ($user->playerinfo->clan)
+                        [{{ $user->playerinfo->clan->clan_tag }}]
+                    @endif
+                    {{$user->username}}
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-md-4">
-                        <h2>Profile:</h2>
+                        <h4 class="h4-responsive">Profile:</h4>
                         @foreach($user->bans as $ban)
                             @if($ban->banneduntil > \Carbon\Carbon::now()->format('Y-m-d H:i:s'))
                                 This user is currently banned.
@@ -24,7 +25,7 @@
                         Coming soon!
                     </div>
                     <div class="col-md-4">
-                        <h2>General Stats:</h2>
+                        <h4 class="h4-responsive">General Stats:</h4>
                         @if($user->playerinfo->clan)
                             Clan: {{ $user->playerinfo->clan->clan_name }}<br>
                         @endif
@@ -37,7 +38,7 @@
                         @endif
                     </div>
                     <div class="col-md-4">
-                        <h2>Player Stats:</h2>
+                        <h4 class="h4-responsive">Player Stats:</h4>
                         @if($user->playerstat)
                             Experience: {{ $user->playerstat->exp }}<br>
                             Track Record: {{ $user->playerstat->wins }}/{{ $user->playerstat->losses }}<br>
@@ -62,7 +63,7 @@
                         @endif
                     </div>
                     <div class="col-md-4">
-                        <h2>Commander stats:</h2>
+                        <h4 class="h4-responsive">Commander stats:</h4>
                         @if($user->commanderstat)
                             Track record: {{ $user->commanderstat->c_wins }}/{{ $user->commanderstat->c_losses }}<br>
                             Experience: {{ $user->commanderstat->c_exp }}<br>
