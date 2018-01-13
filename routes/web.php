@@ -25,6 +25,9 @@ Route::get('/download/{category}', 'DownloadController@show')->name('download.sh
 Route::get('/server', 'ServerController@index')->name('server.index');
 Route::get('/server/{server}', 'ServerController@show')->name('server.show');
 
+Route::get('/stats', 'StatController@index')->name('stats.index');
+Route::post('/stats', 'StatController@search')->name('stats.search');
+
 Route::middleware('auth')->group(function () {
     Route::get('/user/edit', 'UserController@edit')->name('user.edit');
     Route::put('/user/{user}', 'UserController@update')->name('user.update');

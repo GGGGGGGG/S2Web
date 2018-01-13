@@ -40,6 +40,7 @@
                 <ul class="navbar-nav mr-auto">
                     <li><a class="nav-link" href="{{ route('download.index') }}">Downloads</a></li>
                     <li><a class="nav-link" href="{{ route('server.index') }}">Servers</a></li>
+                    <li><a class="nav-link" href="{{ route('stats.index') }}">Stats</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
