@@ -22,13 +22,15 @@
                         <tbody>
 
                         @foreach($servers as $server)
-                            <tr>
-                                <td>{{ $server->id }}</td>
-                                <td><a href="{{ route('server.show', $server->id) }}">{{ $server->name }}</a></td>
-                                <td>{{ $server->ip }}:{{ $server->port }}</td>
-                                <td>{{ $server->num_conn }}/{{ $server->max_conn }}</td>
-                                <td>{{ $server->description }}</td>
-                            </tr>
+                            @if($server->online == 1)
+                                <tr>
+                                    <td>{{ $server->id }}</td>
+                                    <td><a href="{{ route('server.show', $server->id) }}">{{ $server->name }}</a></td>
+                                    <td>{{ $server->ip }}:{{ $server->port }}</td>
+                                    <td>{{ $server->num_conn }}/{{ $server->max_conn }}</td>
+                                    <td>{{ $server->description }}</td>
+                                </tr>
+                            @endif
                         @endforeach
                         </tbody>
                     </table>
