@@ -30,7 +30,7 @@
 
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="{{ url('/img/logo.png') }}">
                 </a>
             </div>
