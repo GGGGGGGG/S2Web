@@ -18,8 +18,6 @@ class CreateClans extends Migration
             $table->string('clan_name');
             $table->string('clan_tag');
             $table->string('clan_img');
-
-            $table->foreign('account_id')->references('id')->on('users');
         });
     }
 
