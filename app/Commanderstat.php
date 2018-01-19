@@ -9,8 +9,8 @@ class Commanderstat extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'account_id',  'c_wins', 'c_losses', 'c_d_conns', 'c_exp', 'c_earned_exp', 'c_builds', 'c_gold', 'c_razed',
-        'c_hp_healed', 'c_pdmg', 'c_kills', 'c_assists', 'c_debuffs', 'c_buffs', 'c_orders', 'c_secs', 'c_winstreak'
+        'account_id',  'wins', 'losses', 'd_conns', 'exp', 'earned_exp', 'builds', 'gold', 'razed',
+        'hp_healed', 'pdmg', 'kills', 'assists', 'debuffs', 'buffs', 'orders', 'secs', 'winstreak'
     ];
 
     public function user()

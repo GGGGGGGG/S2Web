@@ -15,23 +15,23 @@ class CreateCommanderstats extends Migration
     {
         Schema::create('commanderstats', function (Blueprint $table) {
             $table->increments('account_id');
-            $table->integer('c_wins')->default('0');
-            $table->integer('c_losses')->default('0');
-            $table->integer('c_d_conns')->default('0');
-            $table->integer('c_exp')->default('0');
-            $table->integer('c_earned_exp')->default('0');
-            $table->integer('c_builds')->default('0');
-            $table->integer('c_gold')->default('0');
-            $table->integer('c_razed')->default('0');
-            $table->integer('c_hp_healed')->default('0');
-            $table->integer('c_pdmg')->default('0');
-            $table->integer('c_kills')->default('0');
-            $table->integer('c_assists')->default('0');
-            $table->integer('c_debuffs')->default('0');
-            $table->integer('c_buffs')->default('0');
-            $table->integer('c_orders')->default('0');
-            $table->integer('c_secs')->default('0');
-            $table->integer('c_winstreak')->default('0');
+            $table->integer('wins')->default('0');
+            $table->integer('losses')->default('0');
+            $table->integer('d_conns')->default('0');
+            $table->integer('exp')->default('0');
+            $table->integer('earned_exp')->default('0');
+            $table->integer('builds')->default('0');
+            $table->integer('gold')->default('0');
+            $table->integer('razed')->default('0');
+            $table->integer('hp_healed')->default('0');
+            $table->integer('pdmg')->default('0');
+            $table->integer('kills')->default('0');
+            $table->integer('assists')->default('0');
+            $table->integer('debuffs')->default('0');
+            $table->integer('buffs')->default('0');
+            $table->integer('orders')->default('0');
+            $table->integer('secs')->default('0');
+            $table->integer('winstreak')->default('0');
 
             $table->foreign('account_id')->references('id')->on('users');
         });

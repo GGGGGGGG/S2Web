@@ -65,19 +65,19 @@
                     <div class="col-md-4">
                         <h4 class="h4-responsive">Commander stats:</h4>
                         @if($user->commanderstat)
-                            Track record: {{ $user->commanderstat->c_wins }}/{{ $user->commanderstat->c_losses }}<br>
-                            Experience: {{ $user->commanderstat->c_exp }}<br>
-                            Buildings built: {{ $user->commanderstat->c_builds }} <br>
-                            Gold earned: {{ $user->commanderstat->c_gold }}<br>
-                            Buildings destroyed: {{ $user->commanderstat->c_razed }}<br>
-                            Hp Healed: {{ $user->commanderstat->c_hp_healed }}<br>
-                            Player Damage {{ $user->commanderstat->c_pdmg }} <br>
-                            Kills: {{ $user->commanderstat->c_kills }}<br>
-                            Assists: {{ $user->commanderstat->c_assists }} <br>
-                            Debuffs: {{ $user->commanderstat->c_debuffs }}<br>
-                            Buffs: {{ $user->commanderstat->c_buffs }} <br>
-                            Orders: {{ $user->commanderstat->c_orders }} <br>
-                            Winstreak: {{ $user->commanderstat->c_winstreak }}<br>
+                            Track record: {{ $user->commanderstat->wins }}/{{ $user->commanderstat->losses }}<br>
+                            Experience: {{ $user->commanderstat->exp }}<br>
+                            Buildings built: {{ $user->commanderstat->builds }} <br>
+                            Gold earned: {{ $user->commanderstat->gold }}<br>
+                            Buildings destroyed: {{ $user->commanderstat->razed }}<br>
+                            Hp Healed: {{ $user->commanderstat->hp_healed }}<br>
+                            Player Damage {{ $user->commanderstat->pdmg }} <br>
+                            Kills: {{ $user->commanderstat->kills }}<br>
+                            Assists: {{ $user->commanderstat->assists }} <br>
+                            Debuffs: {{ $user->commanderstat->debuffs }}<br>
+                            Buffs: {{ $user->commanderstat->buffs }} <br>
+                            Orders: {{ $user->commanderstat->orders }} <br>
+                            Winstreak: {{ $user->commanderstat->winstreak }}<br>
                         @else
                             No stats to show.
                         @endif
