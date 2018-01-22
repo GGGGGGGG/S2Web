@@ -15,8 +15,8 @@ class Match extends Model
         return $this->hasOne('App\Server', 'id', 'server');
     }
 
-    public function maps()
+    public function map()
     {
-        return $this->hasOne('App\Map', 'id', 'map');
+        return $this->hasOne('App\Map', 'map', 'map');
     }
 }
