@@ -13,7 +13,18 @@ class CreateVotes extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('votes', function (Blueprint $table) {
+            $table->integer('account_id');
+            $table->integer('comm_id');
+            $table->integer('match_id');
+            $table->integer('vote');
+            $table->text('reason');
+
+
+            $table->foreign('account_id')->references('id')->on('users');
+            $table->foreign('comm_id')->references('id')->on('users');
+            $table->foreign('match_id')->references('id')->on('matches');
+        });
     }
 
     /**
@@ -23,6 +34,6 @@ class CreateVotes extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('votes');
     }
 }

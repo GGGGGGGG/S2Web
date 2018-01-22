@@ -92,6 +92,22 @@ class User extends Authenticatable
         return $this->hasOne('App\Commanderstat', 'account_id', 'id');
     }
 
+    public function votes(){
+        return $this->hasMany('App\Vote', 'comm_id', 'id');
+    }
+
+    public function v_votes(){
+        return $this->hasMany('App\Vote', 'account_id', 'id');
+    }
+
+    public function karmas(){
+        return $this->hasMany('App\Karma', 'target_id', 'id');
+    }
+
+    public function v_karmas(){
+        return $this->hasMany('App\Karma', 'account_id', 'id');
+    }
+
     //a user can have multiple bans, we're keeping track of expired ones.
     public function bans(){
         return $this->hasMany('App\Ban', 'account_id', 'id');

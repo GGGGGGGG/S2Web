@@ -13,7 +13,17 @@ class CreateKarmas extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('karmas', function (Blueprint $table) {
+            $table->integer('account_id');
+            $table->integer('target_id');
+            $table->integer('match_id');
+            $table->string('do');
+            $table->text('reason');
+
+            $table->foreign('account_id')->references('id')->on('users');
+            $table->foreign('target_id')->references('id')->on('users');
+            $table->foreign('match_id')->references('id')->on('matches');
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ class CreateKarmas extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('karmas');
     }
 }

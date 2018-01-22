@@ -15,8 +15,8 @@ class Match extends Model
         return $this->hasOne('App\Server', 'id', 'server');
     }
 
-    public function map()
+    public function match_summ()
     {
-        return $this->hasOne('App\Map', 'map', 'map');
+        return $this->belongsTo('App\Match_summ', 'id', 'id');
     }
 }

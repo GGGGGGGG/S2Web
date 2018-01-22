@@ -13,7 +13,15 @@ class CreateBuddies extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('buddies', function (Blueprint $table) {
+            $table->integer('source_id');
+            $table->integer('target_id');
+            $table->string('note');
+
+
+            $table->foreign('source_id')->references('id')->on('users');
+            $table->foreign('target_id')->references('id')->on('users');
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class CreateBuddies extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('buddies');
     }
 }

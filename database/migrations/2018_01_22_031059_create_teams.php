@@ -13,7 +13,17 @@ class CreateTeams extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('teams', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('match');
+            $table->integer('race');
+            $table->integer('avg_sf');
+            $table->integer('commander');
+
+            $table->foreign('match')->references('id')->on('matches');
+            $table->foreign('commander')->references('id')->on('users');
+
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ class CreateTeams extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('teams');
     }
 }
