@@ -22,7 +22,7 @@ class StatController extends Controller
     {
         $users = null;
         $matches = null;
-        return view('stats.index')->with('users', $users)->with('matches', $matches);
+        return view('stats.index')->with('users', $users);
     }
 
     public function search(Request $request)
@@ -35,6 +35,11 @@ class StatController extends Controller
             $matches = Match::where('id', 'LIKE', '%'.request('keyword').'%')->get();
         }
 
-        return view('stats.index')->with('users', $users)->with('matches', $matches);
+        return view('stats.index')->with('users', $users);
+    }
+
+    public function leaderboard()
+    {
+        return view('stats.leaderboard');
     }
 }

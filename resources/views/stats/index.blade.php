@@ -4,17 +4,7 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-3">
-                <div class="card">
-                    <div class="card-header mdb-color lighten-1 white-text">
-                        Leaderboard
-                    </div>
-                    <div class="card-body">
-                        Coming soon!
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
+            <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header mdb-color lighten-1 white-text">
                         Search
@@ -26,7 +16,7 @@
                             <div class="md-form">
                                 <input id="keyword" type="text" class="form-control" name="keyword"
                                        value="{{ old('keyword') }}">
-                                <label for="keyword">Username/Match ID</label>
+                                <label for="keyword">Username</label>
                             </div>
                             <button type="submit" class="btn btn-primary">
                                 Search
@@ -35,20 +25,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="card">
-                    <div class="card-header mdb-color lighten-1 white-text">
-                        Lastest matches
-                    </div>
-                    <div class="card-body">
-                        Coming soon!
-                    </div>
-                </div>
-            </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-6">
+            <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header mdb-color lighten-1 white-text">
                         Players
@@ -60,22 +40,6 @@
                             @endforeach
                         @else
                             No results.
-                        @endif
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header mdb-color lighten-1 white-text">
-                        Matches
-                    </div>
-                    <div class="card-body">
-                        @if($matches)
-                            @foreach($matches as $match)
-                                {{ $match->id }}
-                            @endforeach
-                        @else
-                            No Results.
                         @endif
                     </div>
                 </div>

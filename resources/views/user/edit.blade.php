@@ -16,7 +16,7 @@
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="email" type="email" class="form-control" name="email"
                                        value="{{ $user->email }}" required>
@@ -34,7 +34,7 @@
                     <div class="form-group{{ $errors->has('current_password') ? ' has-error' : '' }}">
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="current_password" type="password" class="form-control"
                                        name="current_password" required>
@@ -52,7 +52,7 @@
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="password" type="password" class="form-control" name="password">
                                 <label for="password" class="col-md-4 control-label">Password</label>
@@ -69,7 +69,7 @@
                     <div class="form-group">
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="password-confirm" type="password" class="form-control"
                                        name="password_confirmation">
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
+                        <div class="col-md-8 offset-md-2">
                             <button type="submit" class="btn btn-primary">
                                 Update
                             </button>

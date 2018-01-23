@@ -14,7 +14,7 @@
                     <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
 
 
-                        <div class="col align-self-center">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="username" type="text" class="form-control" name="username"
                                        value="{{ old('username') }}" required autofocus>
@@ -30,7 +30,7 @@
 
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
-                        <div class="col align-self-center">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="password" type="password" class="form-control" name="password" required>
                                 <label for="password">Password</label>
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col align-self-center">
+                        <div class="col-md-8 offset-md-2">
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col align-self-center">
+                        <div class="col-md-8 offset-md-2">
                             <button type="submit" class="btn btn-primary">
                                 Login
                             </button>

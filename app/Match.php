@@ -19,4 +19,9 @@ class Match extends Model
     {
         return $this->belongsTo('App\Match_summ', 'id', 'id');
     }
+
+    public function teams()
+    {
+        return $this->hasMany('App\Team', 'match', 'id');
+    }
 }

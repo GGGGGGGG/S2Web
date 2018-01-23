@@ -13,7 +13,7 @@
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                        <div class="col-md-6">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="username" type="text" class="form-control" name="username"
                                        value="{{ old('username') }}" required autofocus>
@@ -30,7 +30,7 @@
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="email" type="email" class="form-control" name="email"
                                        value="{{ old('email') }}" required>
@@ -48,7 +48,7 @@
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="password" type="password" class="form-control" name="password" required>
                                 <label for="password">Password</label>
@@ -65,7 +65,7 @@
                     <div class="form-group">
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-8 offset-md-2">
                             <div class="md-form">
                                 <input id="password-confirm" type="password" class="form-control"
                                        name="password_confirmation" required>
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
+                        <div class="col-md-8 offset-md-2">
                             <button type="submit" class="btn btn-primary">
                                 Register
                             </button>

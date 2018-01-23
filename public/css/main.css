@@ -2,9 +2,6 @@
     height: 500px;
 }
 
-body {
-    padding-bottom: 200px;
-}
 /* Style all font awesome icons */
 .fab {
     background-color: #333;
@@ -41,4 +38,24 @@ body {
 .fa-discord {
     background: #7289DA;
     color: white;
+}
+
+footer {
+    position: relative;
+    margin-top: -190px !important;
+    height: 190px;
+    clear: both;
+}
+
+html, body, #testcontainer {
+    height: 100%;
+}
+
+body > #testcontainer {
+    height: auto;
+    min-height: 100%;
+}
+
+#main {
+    padding-bottom: 190px;
 }

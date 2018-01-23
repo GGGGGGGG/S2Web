@@ -13,6 +13,6 @@ class Match_summ extends Model
     ];
 
     function server(){
-        $this->belongsTo('App\Server', 'server_id', 'id');
+        return $this->belongsTo('App\Server', 'server_id', 'id');
     }
 }

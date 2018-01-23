@@ -11,15 +11,15 @@ class Karma extends Model
     ];
 
     public function user(){
-        $this->belongsTo('App\User', 'account_id', 'id');
+        return $this->belongsTo('App\User', 'account_id', 'id');
     }
 
     public function target(){
-        $this->belongsTo('App\User', 'target_id', 'id');
+        return $this->belongsTo('App\User', 'target_id', 'id');
     }
 
     public function match(){
-        $this->belongsTo('App\Match', 'match_id', 'id');
+        return $this->belongsTo('App\Match', 'match_id', 'id');
     }
 
 }

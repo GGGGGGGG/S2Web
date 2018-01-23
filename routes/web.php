@@ -22,11 +22,16 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/download', 'DownloadController@index')->name('download.index');
 Route::get('/download/{category}', 'DownloadController@show')->name('download.show');
 
+Route::get('/match', 'MatchController@index')->name('match.index');
+Route::get('/match/{match}', 'MatchController@show')->name('match.show');
+Route::post('/match', 'MatchController@search')->name('match.search');
+
 Route::get('/server', 'ServerController@index')->name('server.index');
 Route::get('/server/{server}', 'ServerController@show')->name('server.show');
 
 Route::get('/stats', 'StatController@index')->name('stats.index');
 Route::post('/stats', 'StatController@search')->name('stats.search');
+Route::get('/stats/leaderboard', 'StatController@leaderboard')->name('stats.leaderboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/user/edit', 'UserController@edit')->name('user.edit');

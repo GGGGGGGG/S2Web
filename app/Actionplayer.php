@@ -16,7 +16,7 @@ class Actionplayer extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'id', 'user');
+        return $this->belongsTo('App\User', 'user', 'id');
     }
 
     public function matches()

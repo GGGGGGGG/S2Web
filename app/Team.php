@@ -16,5 +16,12 @@ class Team extends Model
         'match', 'race', 'avg_sf', 'commander'
     ];
 
+    function user(){
+        return $this->belongsTo('App\User', 'commander', 'id');
+    }
+
+    function actionplayers(){
+        return $this->hasMany('App\Actionplayer', 'team', 'id');
+    }
 
 }

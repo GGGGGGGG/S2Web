@@ -45,7 +45,7 @@
                             Kills: {{ $user->playerstat->kills }} Deaths: {{ $user->playerstat->deaths }}
                             Assists: {{ $user->playerstat->assists }}<br>
                             @if($user->playerstat->kills + $user->playerstat->assists > 0 and $user->playerstat->deaths > 0)
-                                KDA: {{ ($user->playerstat->kills + $user->playerstat->assists)/$user->playerstat->deaths  }}
+                                KDA: {{ number_format(($user->playerstat->kills + $user->playerstat->assists)/$user->playerstat->deaths, 2, '.', ',')  }}
                                 <br>
                             @else
                                 KDA: N/A<br>
@@ -88,7 +88,11 @@
                     </div>
                     <div class="col-md-4">
                         <h2>Match History:</h2>
-                        Coming soon!
+                        @foreach($user_matches as $user_match)
+                            <a href="{{ route('match.show', $user_match->match) }}">{{ $user_match->match }}</a><br>
+                        @endforeach
+
+                        {{ $user_matches->links() }}
                     </div>
                 </div>
             </div>

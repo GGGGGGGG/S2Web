@@ -76,7 +76,7 @@ class User extends Authenticatable
         return false;
     }
 
-    public function actionplayer(){
+    public function actionplayers(){
         return $this->hasMany('App\Actionplayer', 'user', 'id');
     }
 

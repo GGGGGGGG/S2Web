@@ -13,15 +13,15 @@ class Vote extends Model
     ];
 
     public function user(){
-        $this->belongsTo('App\User', 'account_id', 'id');
+        return $this->belongsTo('App\User', 'account_id', 'id');
     }
 
     public function commander(){
-        $this->belongsTo('App\User', 'comm_id', 'id');
+        return $this->belongsTo('App\User', 'comm_id', 'id');
     }
 
     public function match(){
-        $this->belongsTo('App\Match', 'match_id', 'id');
+        return $this->belongsTo('App\Match', 'match_id', 'id');
     }
 
 }

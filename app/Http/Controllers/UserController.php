@@ -18,7 +18,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('user.show')->with('user', $user);
+        $user_matches = $user->actionplayers()->orderBy('match', 'desc')->paginate(10);
+        return view('user.show')->with('user', $user)->with('user_matches', $user_matches);
     }
 
     public function edit()
