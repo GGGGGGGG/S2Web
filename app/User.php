@@ -77,7 +77,7 @@ class User extends Authenticatable
     }
 
     public function actionplayers(){
-        return $this->hasMany('App\Actionplayer', 'user', 'id');
+        return $this->hasMany('App\Actionplayer', 'account_id', 'id');
     }
 
     public function playerstat(){

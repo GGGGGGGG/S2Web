@@ -9,12 +9,12 @@ class Player extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'user', 'server', 'updated', 'online'
+        'account_id', 'server', 'updated', 'online'
     ];
 
     public function user()
     {
-        return $this->hasOne('App\User', 'id', 'user');
+        return $this->hasOne('App\User', 'id', 'account_id');
     }
 
     public function server()

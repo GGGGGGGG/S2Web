@@ -11,12 +11,12 @@ class Actionplayer extends Model
     protected $table = 'actionplayers';
 
     protected $fillable = [
-        'user', 'match', 'team', 'exp', 'kills', 'deaths', 'assists', 'souls', 'razed', 'pdmg', 'bdmg', 'npc', 'hp_healed', 'res', 'gold', 'hp_repaired', 'secs', 'ip'
+        'account_id', 'match_id', 'team_id', 'exp', 'kills', 'deaths', 'assists', 'souls', 'razed', 'pdmg', 'bdmg', 'npc', 'hp_healed', 'res', 'gold', 'hp_repaired', 'secs', 'ip'
     ];
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user', 'id');
+        return $this->belongsTo('App\User', 'account_id', 'id');
     }
 
     public function matches()

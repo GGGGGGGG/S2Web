@@ -14,9 +14,9 @@ class CreateActionplayers extends Migration
     public function up()
     {
         Schema::create('actionplayers', function (Blueprint $table) {
-            $table->integer('user');
-            $table->integer('match');
-            $table->integer('team');
+            $table->integer('account_id');
+            $table->integer('match_id');
+            $table->integer('team_id');
             $table->integer('exp');
             $table->integer('kills');
             $table->integer('deaths');
@@ -33,8 +33,9 @@ class CreateActionplayers extends Migration
             $table->integer('secs');
             $table->ipAddress('ip');
 
-            $table->foreign('user')->references('id')->on('users');
-            $table->foreign('match')->references('id')->on('matches');
+            $table->foreign('account_id')->references('id')->on('users');
+            $table->foreign('match_id')->references('id')->on('matches');
+            $table->foreign('team_id')->references('id')->on('teams');
         });
     }
 

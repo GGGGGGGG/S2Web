@@ -14,12 +14,12 @@ class CreatePlayers extends Migration
     public function up()
     {
         Schema::create('players', function (Blueprint $table) {
-            $table->integer('user');
+            $table->integer('account_id');
             $table->integer('server');
             $table->dateTime('updated');
             $table->integer('online');
 
-            $table->foreign('user')->references('id')->on('users');
+            $table->foreign('account_id')->references('id')->on('users');
             $table->foreign('server')->references('id')->on('servers');
         });
     }
