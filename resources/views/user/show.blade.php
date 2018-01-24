@@ -89,7 +89,7 @@
                     <div class="col-md-4">
                         <h2>Match History:</h2>
                         @foreach($user_matches as $user_match)
-                            <a href="{{ route('match.show', $user_match->match) }}">{{ $user_match->match }}</a><br>
+                            <a href="{{ route('match.show', $user_match->match_id) }}">{{ $user_match->match_id }}</a><br>
                         @endforeach
 
                         {{ $user_matches->links() }}

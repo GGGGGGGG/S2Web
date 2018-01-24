@@ -47,13 +47,13 @@
                                 @endif
                                 <br> <h4>Active Players:</h4>
                                 @foreach($team->actionplayers as $actionplayer)
-                                    <a href="{{ route("user.show", $actionplayer->user) }}">{{ \App\User::find($actionplayer->user)->username }}</a>
+                                    <a href="{{ route("user.show", $actionplayer->user->id) }}">{{ $actionplayer->user->username }}</a>
                                     <a data-toggle="modal" data-target="#modal-{{ $actionplayer->user }}" class="fas fa-chart-bar"></a><br>
                                     <div class="modal fade" id="modal-{{ $actionplayer->user }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel-{{ $actionplayer->user }}" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="modalLabel--{{ $actionplayer->user }}">{{ \App\User::find($actionplayer->user)->username }}</h5>
+                                                    <h5 class="modal-title" id="modalLabel--{{ $actionplayer->user->id }}">{{ $actionplayer->user->username }}</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>

@@ -21,7 +21,7 @@ class Team extends Model
     }
 
     function actionplayers(){
-        return $this->hasMany('App\Actionplayer', 'team', 'id');
+        return $this->hasMany('App\Actionplayer', 'team_id', 'id');
     }
 
 }

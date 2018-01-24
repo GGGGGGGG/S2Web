@@ -11,7 +11,7 @@
                             <b>Players currently online on this server:</b><br>
                             @foreach($server->players as $player)
                                 @if($player->online == 1)
-                                    <a href="{{ route('user.show', $player->user ) }}">{{ \App\User::find($player->user)->username }}</a><br>
+                                    <a href="{{ route('user.show', $player->user->id ) }}">{{ $player->user->username }}</a><br>
                                 @endif
                                 @endforeach
                     </div>
