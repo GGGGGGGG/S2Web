@@ -15,9 +15,11 @@
                                 General Info
                             </div>
                             <div class="card-body">
-                                Map : {{ $match->map }}<br>
-                                Duration :{{ $match->duration }}<br>
-                                Winner: <a data-toggle="collapse" href="#winner" aria-expanded="false" aria-controls="winner">Spoiler</a><br>
+                                <b>Map :</b> {{ $match->map }}<br>
+                                <b>Server :</b> {{ $match->match_summ->server->name }}<br>
+                                <b>Date :</b> {{ $match->match_summ->created_at }}<br>
+                                <b>Duration</b> : {{ $match->duration }}<br>
+                                <b>Winner :</b> <a data-toggle="collapse" href="#winner" aria-expanded="false" aria-controls="winner">Spoiler</a><br>
                                 <div class="collapse" id="winner">
                                     <p>@if( $match->winner == 1)
                                             Humans
@@ -25,7 +27,7 @@
                                             Beasts
                                         @endif</p>
                                 </div>
-                                Replay : Coming soon! <br>
+                                <b>Replay :</b> Coming soon! <br>
                             </div>
                         </div>
                     </div>
