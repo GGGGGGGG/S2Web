@@ -11,10 +11,12 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
+    <link href="{{ asset('css/game-icons.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
 
 </head>
 <body>
@@ -41,8 +43,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a class="nav-link" href="{{ route('download.index') }}">Downloads</a></li>
-                        <li><a class="nav-link" href="{{ route('server.index') }}">Servers</a></li>
+                        <li><a class="nav-link white-text" href="{{ route('download.index') }}">Downloads</a></li>
+                        <li><a class="nav-link white-text" href="{{ route('server.index') }}">Servers</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLinkStat" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">Stats <span class="carey"></span></a>
@@ -64,8 +66,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                            <li><a class="nav-link white-text" href="{{ route('login') }}">Login</a></li>
+                            <li><a class="nav-link white-text" href="{{ route('register') }}">Register</a></li>
                             @else
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"

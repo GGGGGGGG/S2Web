@@ -30,7 +30,7 @@
                             Clan: {{ $user->playerinfo->clan->clan_name }}<br>
                         @endif
                         @if($user->playerinfo)
-                            Skill Factor : {{ $user->playerinfo->sf }}<br>
+                            <i class="game-icon game-icon-medal style-stats"></i> Skill Factor : {{ $user->playerinfo->sf }}<br>
                             Level: {{ $user->playerinfo->level }}<br>
                             Karma: {{ $user->playerinfo->karma }}<br>
                         @else
@@ -40,24 +40,28 @@
                     <div class="col-md-4">
                         <h4 class="h4-responsive">Player Stats:</h4>
                         @if($user->playerstat)
-                            Experience: {{ $user->playerstat->exp }}<br>
+                            <i class="game-icon game-icon-upgrade style-stats"></i> Experience: {{ $user->playerstat->exp }}<br>
                             Track Record: {{ $user->playerstat->wins }}/{{ $user->playerstat->losses }}<br>
-                            Kills: {{ $user->playerstat->kills }} Deaths: {{ $user->playerstat->deaths }}
-                            Assists: {{ $user->playerstat->assists }}<br>
+                            <i class="game-icon game-icon-chopped-skull style-stats"></i> Kills: {{ $user->playerstat->kills }} <br>
+                            <i class="game-icon game-icon-chewed-skull style-stats"></i> Deaths: {{ $user->playerstat->deaths }} <br>
+                            <i class="game-icon game-icon-shaking-hands style-stats"></i> Assists: {{ $user->playerstat->assists }}<br>
+                            <i class="game-icon game-icon-master-of-arms style-stats"></i>
                             @if($user->playerstat->kills + $user->playerstat->assists > 0 and $user->playerstat->deaths > 0)
                                 KDA: {{ number_format(($user->playerstat->kills + $user->playerstat->assists)/$user->playerstat->deaths, 2, '.', ',')  }}
                                 <br>
                             @else
                                 KDA: N/A<br>
                             @endif
-                            Souls: {{ $user->playerstat->souls }}<br>
-                            Razed: {{ $user->playerstat->razed }}<br>
-                            Player Damage: {{ $user->playerstat->pdmg }}<br>
-                            Building Damage: {{ $user->playerstat->bdmg }}<br>
-                            NPC Killed: {{ $user->playerstat->npc }}<br>
-                            Hp Healed: {{ $user->playerstat->hp_healed }} <br>
-                            Resurrection: {{ $user->playerstat->res }} <br>
-                            Gold: {{ $user->playerstat->gold }} <br>
+                            <i class="game-icon game-icon-ghost style-stats"></i>  Souls: {{ $user->playerstat->souls }}<br>
+                            <i class="game-icon game-icon-demolish style-stats"></i> Razed: {{ $user->playerstat->razed }}<br>
+                            <i class="game-icon game-icon-battle-axe style-stats"></i> Player Damage: {{ $user->playerstat->pdmg }}<br>
+                            <i class="game-icon game-icon-cubes style-stats"></i> Building Damage: {{ $user->playerstat->bdmg }}<br>
+                            <i class="game-icon game-icon-monkey style-stats"></i> NPC Killed: {{ $user->playerstat->npc }}<br>
+                            <i class="game-icon game-icon-ankh style-stats"></i> Hp Healed: {{ $user->playerstat->hp_healed }} <br>
+                            <i class="game-icon game-icon-angel-wings style-stats"></i> Resurrection: {{ $user->playerstat->res }} <br>
+                            <i class="game-icon game-icon-gold-bar style-stats"></i> Gold: {{ $user->playerstat->gold }} <br>
+                            <i class="game-icon game-icon-tinker style-stats"></i> Hp Repaired: {{ $user->playerstat->hp_repaired }}<br>
+                            <i class="game-icon game-icon-pocket-watch style-stats"></i> Time Played: {{ gmdate("H:i:s", $user->playerstat->secs) }}<br>
                         @else
                             No stats to show.
                         @endif

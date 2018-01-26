@@ -15,6 +15,7 @@
                                 General Info
                             </div>
                             <div class="card-body">
+                                <img src="{{ asset('img/images/'. $match->map. '.jpg') }}"><br>
                                 <b>Map :</b> {{ $match->map }}<br>
                                 <b>Server :</b> {{ $match->match_summ->server->name }}<br>
                                 <b>Date :</b> {{ $match->match_summ->created_at }}<br>
@@ -61,20 +62,28 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    Skill Factor: {{ $actionplayer->sf }}<br>
-                                                    EXP : {{ $actionplayer->exp }}<br>
-                                                    Kills: {{ $actionplayer->kills }}<br>
-                                                    Deaths: {{ $actionplayer->deaths }}<br>
-                                                    Souls: {{ $actionplayer->souls }}<br>
-                                                    Razed: {{ $actionplayer->razed }}<br>
-                                                    Player Damage: {{ $actionplayer->pdmg }}<br>
-                                                    Building Damage: {{ $actionplayer->bdmg }}<br>
-                                                    Npcs killed: {{ $actionplayer->npc }}<br>
-                                                    Hp Healed: {{ $actionplayer->hp_healed }}<br>
-                                                    Ressurections: {{ $actionplayer->res }}<br>
-                                                    Gold: {{ $actionplayer->gold }}<br>
-                                                    Hp Repaired: {{ $actionplayer->hp_repaired }}<br>
-                                                    Time Played: {{ gmdate("H:i:s", $actionplayer->secs) }}<br>
+                                                    <i class="game-icon game-icon-medal style-stats"></i> Skill Factor: {{ $actionplayer->sf }}<br>
+                                                    <i class="game-icon game-icon-upgrade style-stats"></i> EXP : {{ $actionplayer->exp }}<br>
+                                                    <i class="game-icon game-icon-chopped-skull style-stats"></i> Kills: {{ $actionplayer->kills }}<br>
+                                                    <i class="game-icon game-icon-shaking-hands style-stats"></i> Assists:  {{ $actionplayer->assists }}<br>
+                                                    <i class="game-icon game-icon-chewed-skull style-stats"></i> Deaths: {{ $actionplayer->deaths }}<br>
+                                                    <i class="game-icon game-icon-master-of-arms style-stats"></i> K/D/A:
+                                                    @if($actionplayer->kills + $actionplayer->assists > 0 and $actionplayer->deaths > 0)
+                                                        {{ number_format(($actionplayer->kills + $actionplayer->assists)/$actionplayer->deaths, 2, '.', ',')  }}
+                                                        <br>
+                                                    @else
+                                                        Infinite<br>
+                                                    @endif
+                                                    <i class="game-icon game-icon-ghost style-stats"></i> Souls: {{ $actionplayer->souls }}<br>
+                                                    <i class="game-icon game-icon-demolish style-stats"></i> Razed: {{ $actionplayer->razed }}<br>
+                                                    <i class="game-icon game-icon-battle-axe style-stats"></i> Player Damage: {{ $actionplayer->pdmg }}<br>
+                                                    <i class="game-icon game-icon-cubes style-stats"></i> Building Damage: {{ $actionplayer->bdmg }}<br>
+                                                    <i class="game-icon game-icon-monkey style-stats"></i> Npcs killed: {{ $actionplayer->npc }}<br>
+                                                    <i class="game-icon game-icon-ankh style-stats"></i> Hp Healed: {{ $actionplayer->hp_healed }}<br>
+                                                    <i class="game-icon game-icon-angel-wings style-stats"></i> Ressurections: {{ $actionplayer->res }}<br>
+                                                    <i class="game-icon game-icon-gold-bar style-stats"></i> Gold: {{ $actionplayer->gold }}<br>
+                                                    <i class="game-icon game-icon-tinker style-stats"></i> Hp Repaired: {{ $actionplayer->hp_repaired }}<br>
+                                                    <i class="game-icon game-icon-pocket-watch style-stats"></i> Time Played: {{ gmdate("H:i:s", $actionplayer->secs) }}<br>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
