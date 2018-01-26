@@ -24,6 +24,9 @@ class CreateServers extends Migration
             $table->string('description');
             $table->integer('minlevel');
             $table->integer('maxlevel');
+            $table->string('status');
+            $table->string('next_map');
+            $table->string('map');
             $table->integer('official');
             $table->timestamp('updated');
             $table->boolean('online');

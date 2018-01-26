@@ -8,6 +8,13 @@
                 {{ $server->id }}. {{ $server->name }}
             </div>
             <div class="card-body">
+                <b>IP:Port</b> {{ $server->ip }}:{{ $server->port }}<br>
+                <b>Connections:</b> {{ $server->num_conn }}/{{ $server->max_conn }}<br>
+                <b>Name:</b> {{ $server->name }}<br>
+                <b>Description:</b><p>{{ $server->description }}</p><br>
+                <b>Status:</b> {{ $server->status }}<br>
+                <b>Current map:</b> {{ $server->map }}<br>
+                <b>Next map:</b> {{ $server->next_map }}<br>
                             <b>Players currently online on this server:</b><br>
                             @foreach($server->players as $player)
                                 @if($player->online == 1)

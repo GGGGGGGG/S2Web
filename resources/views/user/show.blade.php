@@ -31,8 +31,8 @@
                         @endif
                         @if($user->playerinfo)
                             <i class="game-icon game-icon-medal style-stats"></i> Skill Factor : {{ $user->playerinfo->sf }}<br>
-                            Level: {{ $user->playerinfo->level }}<br>
-                            Karma: {{ $user->playerinfo->karma }}<br>
+                            <i class="fas fa-level-up-alt style-stats"></i>Level: {{ $user->playerinfo->level }}<br>
+                            <i class="game-icon game-icon-yin-yang style-stats"></i>Karma: {{ $user->playerinfo->karma }}<br>
                         @else
                             No stats to show.
                         @endif
@@ -41,7 +41,7 @@
                         <h4 class="h4-responsive">Player Stats:</h4>
                         @if($user->playerstat)
                             <i class="game-icon game-icon-upgrade style-stats"></i> Experience: {{ $user->playerstat->exp }}<br>
-                            Track Record: {{ $user->playerstat->wins }}/{{ $user->playerstat->losses }}<br>
+                            <i class="far fa-chart-bar style-stats"></i>Track Record: {{ $user->playerstat->wins }}/{{ $user->playerstat->losses }}<br>
                             <i class="game-icon game-icon-chopped-skull style-stats"></i> Kills: {{ $user->playerstat->kills }} <br>
                             <i class="game-icon game-icon-chewed-skull style-stats"></i> Deaths: {{ $user->playerstat->deaths }} <br>
                             <i class="game-icon game-icon-shaking-hands style-stats"></i> Assists: {{ $user->playerstat->assists }}<br>

@@ -16,19 +16,6 @@
     text-align: center;
 }
 
-.game-icon {
-    background-color: #333;
-    border-radius: 30px;
-    color: #fff;
-    display: inline-block;
-    height: 30px;
-    line-height: 30px;
-    margin: auto 3px;
-    width: 30px;
-    font-size: 15px;
-    text-align: center;
-}
-
 .fab:hover {
     opacity: 0.5;
 }
@@ -54,13 +41,17 @@
 }
 
 .style-stats {
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    display: inline-block;
     background: black;
     color: white;
     font-size: 30px;
     text-shadow: 1px 1px 4px #000000;
     vertical-align: middle;
     text-align: center;
-    margin-left:0px;
     background-position: center;
     margin: 2px 2px 2px 2px;
 }
