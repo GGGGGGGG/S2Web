@@ -21,18 +21,15 @@ class StatController extends Controller
     public function index()
     {
         $users = null;
-        $matches = null;
         return view('stats.index')->with('users', $users);
     }
 
     public function search(Request $request)
     {
         $users = null;
-        $matches = null;
         if(request('keyword') != '')
         {
             $users = User::where('username', 'LIKE', '%'.request('keyword').'%')->get();
-            $matches = Match::where('id', 'LIKE', '%'.request('keyword').'%')->get();
         }
 
         return view('stats.index')->with('users', $users);
