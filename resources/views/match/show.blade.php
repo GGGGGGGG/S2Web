@@ -28,7 +28,7 @@
                                             Beasts
                                         @endif</p>
                                 </div>
-                                <b>Replay :</b> Coming soon! <br>
+                                <b>Replay :</b> <a href="{{ 'http://masterserver1.talesofnewerth.com/replays/'.$match->id.'.s2r' }}">Download</a>
                             </div>
                         </div>
                     </div>

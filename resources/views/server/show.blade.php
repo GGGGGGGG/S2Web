@@ -11,6 +11,9 @@
                 <b>IP:Port</b> {{ $server->ip }}:{{ $server->port }}<br>
                 <b>Connections:</b> {{ $server->num_conn }}/{{ $server->max_conn }}<br>
                 <b>Name:</b> {{ $server->name }}<br>
+                @if($server->official == 1)
+                    This is an official server.
+                @endif
                 <b>Description:</b><p>{{ $server->description }}</p><br>
                 <b>Status:</b> {{ $server->status }}<br>
                 <b>Current map:</b> {{ $server->map }}<br>
