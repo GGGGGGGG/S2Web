@@ -12,7 +12,7 @@
                 <b>Connections:</b> {{ $server->num_conn }}/{{ $server->max_conn }}<br>
                 <b>Name:</b> {{ $server->name }}<br>
                 @if($server->official == 1)
-                    This is an official server.
+                    This is an official server.<br>
                 @endif
                 <b>Description:</b><p>{{ $server->description }}</p><br>
                 <b>Status:</b> {{ $server->status }}<br>
