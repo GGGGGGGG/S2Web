@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Match;
+use App\Playerinfo;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Action;
@@ -37,6 +38,8 @@ class StatController extends Controller
 
     public function leaderboard()
     {
-        return view('stats.leaderboard');
+        $sf = Playerinfo::where('sf', '>', 0)->orderBy('sf', 'desc')->take(20)->get();
+
+        return view('stats.leaderboard')->with('sf', $sf);
     }
 }

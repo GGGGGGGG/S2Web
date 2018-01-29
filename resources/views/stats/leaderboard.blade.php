@@ -8,7 +8,24 @@
                 Leaderboard
             </div>
             <div class="card-body">
-                Coming soon!
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Position:</th>
+                        <th>Username:</th>
+                        <th>SF:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($sf as $player)
+                        <tr>
+                            <th>{{ $loop->iteration }}</th>
+                            <td>{{ $player->user->username }}</td>
+                            <td>{{ $player->sf }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
