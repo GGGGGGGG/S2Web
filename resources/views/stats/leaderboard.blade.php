@@ -20,7 +20,7 @@
                     @foreach($sf as $player)
                         <tr>
                             <th>{{ $loop->iteration }}</th>
-                            <td>{{ $player->user->username }}</td>
+                            <td><a href="{{ route('user.show', $player->user->id) }}">{{ $player->user->username }}</a></td>
                             <td>{{ $player->sf }}</td>
                         </tr>
                     @endforeach
