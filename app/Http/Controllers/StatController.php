@@ -43,18 +43,23 @@ class StatController extends Controller
         $sf = Cache::remember('sf', 240, function () {
             return Playerinfo::where('sf', '>', 0)->orderBy('sf', 'desc')->take(20)->get();
         });
+
         $hp_healed = Cache::remember('hp_healed', 240, function () {
             return Playerstat::where('hp_healed', '>', 0)->orderBy('hp_healed', 'desc')->take(20)->get();
         });
+
         $bdmg = Cache::remember('bdmg', 240, function () {
             return Playerstat::where('bdmg', '>', 0)->orderBy('bdmg', 'desc')->take(20)->get();
         });
+
         $hp_repaired = Cache::remember('hp_repaired', 240, function () {
             return Playerstat::where('hp_repaired', '>', 0)->orderBy('hp_repaired', 'desc')->take(20)->get();
         });
+
         $kills = Cache::remember('kills', 240, function () {
             return Playerstat::where('kills', '>', 0)->orderBy('kills', 'desc')->take(20)->get();
         });
+
         $assists = Cache::remember('assists', 240, function () {
             return Playerstat::where('assists', '>', 0)->orderBy('assists', 'desc')->take(20)->get();
         });

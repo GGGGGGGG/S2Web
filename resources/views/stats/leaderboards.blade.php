@@ -141,7 +141,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($hp_repaired as $player)
+                            @foreach($kills as $player)
                                 <tr>
                                     <th>{{ $loop->iteration }}</th>
                                     <td>
