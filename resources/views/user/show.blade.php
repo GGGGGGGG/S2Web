@@ -108,6 +108,7 @@
                             </div>
                             <div class="card-body">
                                 @if($user->commanderstat)
+                                    Commander Rating: {{ $avg_comm }}<br>
                                     Track record: {{ $user->commanderstat->wins }}/{{ $user->commanderstat->losses }}
                                     <br>
                                     Experience: {{ $user->commanderstat->exp }}<br>
