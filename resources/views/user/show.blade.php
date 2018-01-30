@@ -108,7 +108,7 @@
                             </div>
                             <div class="card-body">
                                 @if($user->commanderstat)
-                                    Commander Rating: {{ $avg_comm }}<br>
+                                    <a data-toggle="modal" data-target="#modalComm">Commander Rating: {{ $avg_comm }}</a><br>
                                     Track record: {{ $user->commanderstat->wins }}/{{ $user->commanderstat->losses }}
                                     <br>
                                     Experience: {{ $user->commanderstat->exp }}<br>
@@ -126,6 +126,44 @@
                                 @else
                                     No stats to show.
                                 @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="modalComm" tabindex="-1" role="dialog" aria-labelledby="commModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="commModalLabel">Commander votes:</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Player name: </th>
+                                            <th>Match ID: </th>
+                                            <th>Rating: </th>
+                                            <th>Reason: </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                    @foreach($votes as $vote)
+                                        <tr>
+                                            <td><a href="{{ route('user.show', $vote->user->id) }}">{{ $vote->user->username }}</a></td>
+                                            <td><a href="{{ route('match.show', $vote->match->id) }}">{{ $vote->match->id }}</a></td>
+                                            <td>{{ $vote->vote }}</td>
+                                            <td>{{ $vote->reason }}</td>
+                                        </tr>
+                                    @endforeach
+                                        </tbody>
+                                    </table>
+                                    {{ $votes->links() }}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>

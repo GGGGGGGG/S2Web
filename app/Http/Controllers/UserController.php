@@ -26,7 +26,9 @@ class UserController extends Controller
             return Vote::where('comm_id', $user->id)->avg('vote');
         });
 
-        return view('user.show', compact('user', 'user_matches', 'avg_comm'));
+        $votes = Vote::where('comm_id', $user->id)->paginate(8);
+
+        return view('user.show', compact('user', 'user_matches', 'avg_comm', 'votes'));
     }
 
     public function edit()
