@@ -108,6 +108,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Karma', 'account_id', 'id');
     }
 
+    public function badges(){
+        return $this->hasMany('App\Badges', 'account_id', 'id');
+    }
+
     //a user can have multiple bans, we're keeping track of expired ones.
     public function bans(){
         return $this->hasMany('App\Ban', 'account_id', 'id');
