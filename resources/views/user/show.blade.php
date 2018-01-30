@@ -37,12 +37,20 @@
                                 @if($user->playerinfo)
                                     <i class="game-icon game-icon-medal style-stats"></i> Skill Factor
                                     : {{ $user->playerinfo->sf }}<br>
+                                    Achievement points:
+                                    @foreach($ap as $ap_sum)
+                                        @php
+                                            $summ = 0;
+                                            $summ = $ap_sum->achievement->points + $summ;
+                                        @endphp
+                                    @endforeach
+                                    {{ $summ }}<br>
                                     <i class="fas fa-level-up-alt style-stats"></i>Level: {{ $user->playerinfo->level }}
                                     <br>
                                     <i class="game-icon game-icon-yin-yang style-stats"></i>
                                     Karma: {{ $user->playerinfo->karma }}<br>
                                     <i class="game-icon game-icon-pocket-watch style-stats"></i> Time
-                                        Played: {{ gmdate("H:i:s", $user->playerstat->secs) }}<br>
+                                    Played: {{ gmdate("H:i:s", $user->playerstat->secs) }}<br>
                                     Last online: {{ $user->updated_at }}
                                 @else
                                     No stats to show.
@@ -108,27 +116,42 @@
                             </div>
                             <div class="card-body">
                                 @if($user->commanderstat)
-                                    <i class="game-icon game-icon-stars-stack style-stats"></i><a data-toggle="modal" data-target="#modalComm">Commander Rating: {{ $avg_comm }}</a><br>
-                                    <i class="far fa-chart-bar style-stats"></i>Track record: {{ $user->commanderstat->wins }}/{{ $user->commanderstat->losses }}
+                                    <i class="game-icon game-icon-stars-stack style-stats"></i><a data-toggle="modal"
+                                                                                                  data-target="#modalComm">Commander
+                                        Rating: {{ $avg_comm }}</a><br>
+                                    <i class="far fa-chart-bar style-stats"></i>Track
+                                    record: {{ $user->commanderstat->wins }}/{{ $user->commanderstat->losses }}
                                     <br>
-                                    <i class="game-icon game-icon-upgrade style-stats"></i>Experience: {{ $user->commanderstat->exp }}<br>
-                                    <i class="game-icon game-icon-castle style-stats"></i>Buildings built: {{ $user->commanderstat->builds }} <br>
-                                    <i class="game-icon game-icon-gold-mine style-stats"></i>Gold earned: {{ $user->commanderstat->gold }}<br>
-                                    <i class="game-icon game-icon-demolish style-stats"></i>Buildings destroyed: {{ $user->commanderstat->razed }}<br>
-                                    <i class="game-icon game-icon-health-increase style-stats"></i>Hp Healed: {{ $user->commanderstat->hp_healed }}<br>
-                                    <i class="game-icon game-icon-sword-wound style-stats"></i>Player Damage {{ $user->commanderstat->pdmg }} <br>
-                                    <i class="game-icon game-icon-sacrificial-dagger style-stats"></i>Kills: {{ $user->commanderstat->kills }}<br>
-                                    <i class="game-icon game-icon-master-of-arms style-stats"></i>Assists: {{ $user->commanderstat->assists }} <br>
-                                    <i class="game-icon game-icon-thumb-down style-stats"></i>Debuffs: {{ $user->commanderstat->debuffs }}<br>
-                                    <i class="game-icon game-icon-muscle-up style-stats"></i>Buffs: {{ $user->commanderstat->buffs }} <br>
-                                    <i class="game-icon game-icon-acoustic-megaphone style-stats"></i>Orders: {{ $user->commanderstat->orders }} <br>
+                                    <i class="game-icon game-icon-upgrade style-stats"></i>
+                                    Experience: {{ $user->commanderstat->exp }}<br>
+                                    <i class="game-icon game-icon-castle style-stats"></i>Buildings
+                                    built: {{ $user->commanderstat->builds }} <br>
+                                    <i class="game-icon game-icon-gold-mine style-stats"></i>Gold
+                                    earned: {{ $user->commanderstat->gold }}<br>
+                                    <i class="game-icon game-icon-demolish style-stats"></i>Buildings
+                                    destroyed: {{ $user->commanderstat->razed }}<br>
+                                    <i class="game-icon game-icon-health-increase style-stats"></i>Hp
+                                    Healed: {{ $user->commanderstat->hp_healed }}<br>
+                                    <i class="game-icon game-icon-sword-wound style-stats"></i>Player
+                                    Damage {{ $user->commanderstat->pdmg }} <br>
+                                    <i class="game-icon game-icon-sacrificial-dagger style-stats"></i>
+                                    Kills: {{ $user->commanderstat->kills }}<br>
+                                    <i class="game-icon game-icon-master-of-arms style-stats"></i>
+                                    Assists: {{ $user->commanderstat->assists }} <br>
+                                    <i class="game-icon game-icon-thumb-down style-stats"></i>
+                                    Debuffs: {{ $user->commanderstat->debuffs }}<br>
+                                    <i class="game-icon game-icon-muscle-up style-stats"></i>
+                                    Buffs: {{ $user->commanderstat->buffs }} <br>
+                                    <i class="game-icon game-icon-acoustic-megaphone style-stats"></i>
+                                    Orders: {{ $user->commanderstat->orders }} <br>
                                 @else
                                     No stats to show.
                                 @endif
                             </div>
                         </div>
                     </div>
-                    <div class="modal fade" id="modalComm" tabindex="-1" role="dialog" aria-labelledby="commModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="modalComm" tabindex="-1" role="dialog" aria-labelledby="commModalLabel"
+                         aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -141,21 +164,25 @@
                                     <table class="table table-hover">
                                         <thead>
                                         <tr>
-                                            <th>Player name: </th>
-                                            <th>Match ID: </th>
-                                            <th>Rating: </th>
-                                            <th>Reason: </th>
+                                            <th>Player name:</th>
+                                            <th>Match ID:</th>
+                                            <th>Rating:</th>
+                                            <th>Reason:</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                    @foreach($votes as $vote)
-                                        <tr>
-                                            <td><a href="{{ route('user.show', $vote->user->id) }}">{{ $vote->user->username }}</a></td>
-                                            <td><a href="{{ route('match.show', $vote->match->id) }}">{{ $vote->match->id }}</a></td>
-                                            <td>{{ $vote->vote }}</td>
-                                            <td>{{ $vote->reason }}</td>
-                                        </tr>
-                                    @endforeach
+                                        @foreach($votes as $vote)
+                                            <tr>
+                                                <td>
+                                                    <a href="{{ route('user.show', $vote->user->id) }}">{{ $vote->user->username }}</a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('match.show', $vote->match->id) }}">{{ $vote->match->id }}</a>
+                                                </td>
+                                                <td>{{ $vote->vote }}</td>
+                                                <td>{{ $vote->reason }}</td>
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                     {{ $votes->links() }}
@@ -172,8 +199,10 @@
                                 Badges:
                             </div>
                             <div class="card-body">
-                                @foreach($user->badges as $badge)
-                                    <i class="{{ $badge->achievement->style }}" data-toggle="tooltip" data-placement="bottom" title="{{ $badge->achievement->name }}:  {{ $badge->achievement->description }} pts: {{ $badge->achievement->points }}"></i>
+                                @foreach($ap as $badge)
+                                    <i class="{{ $badge->achievement->style }}" data-toggle="tooltip"
+                                       data-placement="bottom"
+                                       title="{{ $badge->achievement->name }}:  {{ $badge->achievement->description }} pts: {{ $badge->achievement->points }}"></i>
                                 @endforeach
                             </div>
                         </div>
@@ -185,7 +214,8 @@
                             </div>
                             <div class="card-body">
                                 @foreach($user_matches as $user_match)
-                                    <a href="{{ route('match.show', $user_match->match_id) }}">{{ $user_match->match_id }} - {{ $user_match->match->match_summ->created_at}}</a>
+                                    <a href="{{ route('match.show', $user_match->match_id) }}">{{ $user_match->match_id }}
+                                        - {{ $user_match->match->match_summ->created_at}}</a>
                                     <br>
                                 @endforeach
 
@@ -200,11 +230,11 @@
 @endsection
 
 @section('extra_scripts')
-<script>
-    // Tooltips Initialization
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
+    <script>
+        // Tooltips Initialization
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 
 @endsection
