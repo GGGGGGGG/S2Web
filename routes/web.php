@@ -31,7 +31,8 @@ Route::get('/server/{server}', 'ServerController@show')->name('server.show');
 
 Route::get('/stats', 'StatController@index')->name('stats.index');
 Route::post('/stats', 'StatController@search')->name('stats.search');
-Route::get('/stats/leaderboard', 'StatController@leaderboard')->name('stats.leaderboard');
+
+Route::get('/stats/leaderboards', 'StatController@leaderboards')->name('stats.leaderboards');
 
 Route::middleware('auth')->group(function () {
     Route::get('/user/edit', 'UserController@edit')->name('user.edit');

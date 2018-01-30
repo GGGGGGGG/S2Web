@@ -8,7 +8,7 @@
                 Server List:
             </div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table table-hover">
                     <table class="table">
                         <thead>
                         <tr>
@@ -23,13 +23,13 @@
 
                         @foreach($servers as $server)
                             @if($server->online == 1)
-                                <tr>
-                                    <td>{{ $server->id }}</td>
-                                    <td><a href="{{ route('server.show', $server->id) }}">{{ $server->name }}</a></td>
-                                    <td>{{ $server->ip }}:{{ $server->port }}</td>
-                                    <td>{{ $server->num_conn }}/{{ $server->max_conn }}</td>
-                                    <td>{{ $server->description }}</td>
-                                </tr>
+                                    <tr>
+                                        <td>{{ $server->id }}</td>
+                                        <td><a href="{{ route('server.show', $server->id) }}">{{ $server->name }}</a></td>
+                                        <td>{{ $server->ip }}:{{ $server->port }}</td>
+                                        <td>{{ $server->num_conn }}/{{ $server->max_conn }}</td>
+                                        <td>{{ $server->description }}</td>
+                                    </tr>
                             @endif
                         @endforeach
                         </tbody>

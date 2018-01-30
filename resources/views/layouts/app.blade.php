@@ -55,7 +55,7 @@
                                 <a class="dropdown-item" href="{{ route('match.index') }}">
                                     Matches
                                 </a>
-                                <a class="dropdown-item" href="{{ route('stats.leaderboard') }}">
+                                <a class="dropdown-item" href="{{ route('stats.leaderboards') }}">
                                     Leaderboards
                                 </a>
                             </div>
@@ -111,6 +111,7 @@
 <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
+
 @include('layouts.footer')
 </body>
 </html>
