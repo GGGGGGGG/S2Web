@@ -108,21 +108,20 @@
                             </div>
                             <div class="card-body">
                                 @if($user->commanderstat)
-                                    <a data-toggle="modal" data-target="#modalComm">Commander Rating: {{ $avg_comm }}</a><br>
-                                    Track record: {{ $user->commanderstat->wins }}/{{ $user->commanderstat->losses }}
+                                    <i class="game-icon game-icon-stars-stack style-stats"></i><a data-toggle="modal" data-target="#modalComm">Commander Rating: {{ $avg_comm }}</a><br>
+                                    <i class="far fa-chart-bar style-stats"></i>Track record: {{ $user->commanderstat->wins }}/{{ $user->commanderstat->losses }}
                                     <br>
-                                    Experience: {{ $user->commanderstat->exp }}<br>
-                                    Buildings built: {{ $user->commanderstat->builds }} <br>
-                                    Gold earned: {{ $user->commanderstat->gold }}<br>
-                                    Buildings destroyed: {{ $user->commanderstat->razed }}<br>
-                                    Hp Healed: {{ $user->commanderstat->hp_healed }}<br>
-                                    Player Damage {{ $user->commanderstat->pdmg }} <br>
-                                    Kills: {{ $user->commanderstat->kills }}<br>
-                                    Assists: {{ $user->commanderstat->assists }} <br>
-                                    Debuffs: {{ $user->commanderstat->debuffs }}<br>
-                                    Buffs: {{ $user->commanderstat->buffs }} <br>
-                                    Orders: {{ $user->commanderstat->orders }} <br>
-                                    Winstreak: {{ $user->commanderstat->winstreak }}<br>
+                                    <i class="game-icon game-icon-upgrade style-stats"></i>Experience: {{ $user->commanderstat->exp }}<br>
+                                    <i class="game-icon game-icon-castle style-stats"></i>Buildings built: {{ $user->commanderstat->builds }} <br>
+                                    <i class="game-icon game-icon-gold-mine style-stats"></i>Gold earned: {{ $user->commanderstat->gold }}<br>
+                                    <i class="game-icon game-icon-demolish style-stats"></i>Buildings destroyed: {{ $user->commanderstat->razed }}<br>
+                                    <i class="game-icon game-icon-health-increase style-stats"></i>Hp Healed: {{ $user->commanderstat->hp_healed }}<br>
+                                    <i class="game-icon game-icon-sword-wound style-stats"></i>Player Damage {{ $user->commanderstat->pdmg }} <br>
+                                    <i class="game-icon game-icon-sacrificial-dagger style-stats"></i>Kills: {{ $user->commanderstat->kills }}<br>
+                                    <i class="game-icon game-icon-master-of-arms style-stats"></i>Assists: {{ $user->commanderstat->assists }} <br>
+                                    <i class="game-icon game-icon-thumb-down style-stats"></i>Debuffs: {{ $user->commanderstat->debuffs }}<br>
+                                    <i class="game-icon game-icon-muscle-up style-stats"></i>Buffs: {{ $user->commanderstat->buffs }} <br>
+                                    <i class="game-icon game-icon-acoustic-megaphone style-stats"></i>Orders: {{ $user->commanderstat->orders }} <br>
                                 @else
                                     No stats to show.
                                 @endif
