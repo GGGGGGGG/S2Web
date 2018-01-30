@@ -172,7 +172,9 @@
                                 Badges:
                             </div>
                             <div class="card-body">
-                                Coming soon!
+                                @foreach($user->badges as $badge)
+                                    <i class="{{ $badge->achievement->style }}" data-toggle="tooltip" data-placement="bottom" title="{{ $badge->achievement->name }}:  {{ $badge->achievement->description }} pts: {{ $badge->achievement->points }}"></i>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -195,4 +197,14 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('extra_scripts')
+<script>
+    // Tooltips Initialization
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
 @endsection

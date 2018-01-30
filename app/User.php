@@ -109,7 +109,7 @@ class User extends Authenticatable
     }
 
     public function badges(){
-        return $this->hasMany('App\Badges', 'account_id', 'id');
+        return $this->hasMany('App\Badge', 'account_id', 'id');
     }
 
     //a user can have multiple bans, we're keeping track of expired ones.
