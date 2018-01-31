@@ -19,6 +19,8 @@ class CreateAchievements extends Migration
             $table->text('description');
             $table->string('style');
             $table->integer('points');
+            $table->string('condition');
+            $table->integer('value');
         });
     }
 
