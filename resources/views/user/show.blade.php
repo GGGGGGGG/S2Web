@@ -37,14 +37,7 @@
                                 @if($user->playerinfo)
                                     <i class="game-icon game-icon-medal style-stats"></i> Skill Factor
                                     : {{ $user->playerinfo->sf }}<br>
-                                    Achievement points:
-                                    @foreach($ap as $ap_sum)
-                                        @php
-                                            $summ = 0;
-                                            $summ = $ap_sum->achievement->points + $summ;
-                                        @endphp
-                                    @endforeach
-                                    {{ $summ }}<br>
+                                    Achievement points: {{ $user->playerinfo->ap }}<br>
                                     <i class="fas fa-level-up-alt style-stats"></i>Level: {{ $user->playerinfo->level }}
                                     <br>
                                     <i class="game-icon game-icon-yin-yang style-stats"></i>
@@ -199,7 +192,7 @@
                                 Badges:
                             </div>
                             <div class="card-body">
-                                @foreach($ap as $badge)
+                                @foreach($user->badges as $badge)
                                     <i class="{{ $badge->achievement->style }}" data-toggle="tooltip"
                                        data-placement="bottom"
                                        title="{{ $badge->achievement->name }}:  {{ $badge->achievement->description }} pts: {{ $badge->achievement->points }}"></i>

@@ -13,6 +13,6 @@ class Badge extends Model
     ];
 
     public function achievement(){
-        return $this->hasOne('App\Achievement', 'id', 'account_id');
+        return $this->hasOne('App\Achievement', 'id', 'achievement_id');
     }
 }
