@@ -20,26 +20,26 @@ class Playerstat extends Model
 
     public function hf()
     {
-        return $this->hp_healed/$this->secs;
+        return $this->hp_healed/($this->secs/60);
     }
 
     public function rf()
     {
-        return $this->hp_repaired/$this->secs;
+        return $this->hp_repaired/($this->secs/60);
     }
 
     public function kf()
     {
-        return $this->kills/$this->secs;
+        return $this->kills/($this->secs/60);
     }
 
     public function af()
     {
-        return $this->assists/$this->secs;
+        return $this->assists/($this->secs/60);
     }
 
     public function bf()
     {
-        return $this->bdmg/$this->secs;
+        return $this->bdmg/($this->secs/60);
     }
 }
