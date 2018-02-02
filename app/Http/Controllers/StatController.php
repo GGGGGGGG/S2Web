@@ -50,55 +50,41 @@ class StatController extends Controller
         });
 
         $hp_healed = Cache::remember('hp_healed', 240, function () {
-            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
-                ->where('playerstats.hp_healed', '>', 0)
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total, playerstats.hp_healed/playerstats.secs as hf'))
                 ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
-                ->groupBy('playerstats.account_id')->orderBy('hp_healed', 'desc')
+                ->groupBy('playerstats.account_id')->orderBy('hf', 'desc')
                 ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $bdmg = Cache::remember('bdmg', 240, function () {
-            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
-                ->where('playerstats.bdmg', '>', 0)
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total, playerstats.bdmg/playerstats.secs as bf'))
                 ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
-                ->groupBy('playerstats.account_id')->orderBy('bdmg', 'desc')
+                ->groupBy('playerstats.account_id')->orderBy('bf', 'desc')
                 ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $hp_repaired = Cache::remember('hp_repaired', 240, function () {
-            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
-                ->where('playerstats.hp_repaired', '>', 0)
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total, playerstats.hp_repaired/playerstats.secs as rf'))
                 ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
-                ->groupBy('playerstats.account_id')->orderBy('hp_repaired', 'desc')
+                ->groupBy('playerstats.account_id')->orderBy('rf', 'desc')
                 ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $kills = Cache::remember('kills', 240, function () {
-            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
-                ->where('playerstats.kills', '>', 0)
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total, playerstats.kills/playerstats.secs as kf'))
                 ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
-                ->groupBy('playerstats.account_id')->orderBy('kills', 'desc')
+                ->groupBy('playerstats.account_id')->orderBy('kf', 'desc')
                 ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $assists = Cache::remember('assists', 240, function () {
-            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
-                ->where('playerstats.assists', '>', 0)
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total, playerstats.assists/playerstats.secs as af'))
                 ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
-                ->groupBy('playerstats.account_id')->orderBy('assists', 'desc')
+                ->groupBy('playerstats.account_id')->orderBy('af', 'desc')
                 ->havingRaw('total >= 10')->take(20)->get();
         });
-
-        $npc = Cache::remember('npc', 240, function () {
-            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
-                ->where('playerstats.npc', '>', 0)
-                ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
-                ->groupBy('playerstats.account_id')->orderBy('npc', 'desc')
-                ->havingRaw('total >= 10')->take(20)->get();
-        });
-
 
         return view('stats.leaderboards', compact('sf', 'hp_healed', 'bdmg', 'hp_repaired', 'kills',
-            'assists', 'npc'));
+            'assists'));
     }
 }

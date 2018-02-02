@@ -17,4 +17,29 @@ class Playerstat extends Model
     {
         return $this->belongsTo('App\User', 'account_id', 'id');
     }
+
+    public function hf()
+    {
+        return $this->hp_healed/$this->secs;
+    }
+
+    public function rf()
+    {
+        return $this->hp_repaired/$this->secs;
+    }
+
+    public function kf()
+    {
+        return $this->kills/$this->secs;
+    }
+
+    public function af()
+    {
+        return $this->assists/$this->secs;
+    }
+
+    public function bf()
+    {
+        return $this->bdmg/$this->secs;
+    }
 }
