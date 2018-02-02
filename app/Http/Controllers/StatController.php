@@ -11,6 +11,7 @@ use Illuminate\Notifications\Action;
 use App\Actionplayer;
 use App\Http\Requests\StatRequest;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class StatController extends Controller
 {
@@ -41,31 +42,59 @@ class StatController extends Controller
     public function leaderboards()
     {
         $sf = Cache::remember('sf', 240, function () {
-            return Playerinfo::where('sf', '>', 0)->orderBy('sf', 'desc')->take(20)->get();
+            return Playerinfo::select('playerinfos.*', DB::raw('count(actionplayers.account_id) as total'))
+                ->where('playerinfos.sf', '>', 0)
+                ->join('actionplayers', 'actionplayers.account_id', '=', 'playerinfos.account_id')
+                ->groupBy('playerinfos.account_id')->orderBy('sf', 'desc')
+                ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $hp_healed = Cache::remember('hp_healed', 240, function () {
-            return Playerstat::where('hp_healed', '>', 0)->orderBy('hp_healed', 'desc')->take(20)->get();
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
+                ->where('playerstats.hp_healed', '>', 0)
+                ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
+                ->groupBy('playerstats.account_id')->orderBy('hp_healed', 'desc')
+                ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $bdmg = Cache::remember('bdmg', 240, function () {
-            return Playerstat::where('bdmg', '>', 0)->orderBy('bdmg', 'desc')->take(20)->get();
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
+                ->where('playerstats.bdmg', '>', 0)
+                ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
+                ->groupBy('playerstats.account_id')->orderBy('bdmg', 'desc')
+                ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $hp_repaired = Cache::remember('hp_repaired', 240, function () {
-            return Playerstat::where('hp_repaired', '>', 0)->orderBy('hp_repaired', 'desc')->take(20)->get();
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
+                ->where('playerstats.hp_repaired', '>', 0)
+                ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
+                ->groupBy('playerstats.account_id')->orderBy('hp_repaired', 'desc')
+                ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $kills = Cache::remember('kills', 240, function () {
-            return Playerstat::where('kills', '>', 0)->orderBy('kills', 'desc')->take(20)->get();
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
+                ->where('playerstats.kills', '>', 0)
+                ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
+                ->groupBy('playerstats.account_id')->orderBy('kills', 'desc')
+                ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $assists = Cache::remember('assists', 240, function () {
-            return Playerstat::where('assists', '>', 0)->orderBy('assists', 'desc')->take(20)->get();
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
+                ->where('playerstats.assists', '>', 0)
+                ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
+                ->groupBy('playerstats.account_id')->orderBy('assists', 'desc')
+                ->havingRaw('total >= 10')->take(20)->get();
         });
 
         $npc = Cache::remember('npc', 240, function () {
-            return Playerstat::where('npc', '>', 0)->orderBy('npc', 'desc')->take(20)->get();
+            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total'))
+                ->where('playerstats.npc', '>', 0)
+                ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
+                ->groupBy('playerstats.account_id')->orderBy('npc', 'desc')
+                ->havingRaw('total >= 10')->take(20)->get();
         });
 
 
