@@ -21,6 +21,7 @@ class CreatePlayerinfos extends Migration
             $table->integer('level')->default('0');
             $table->integer('clan_id')->default('0');
             $table->integer('karma')->default('0');
+            $table->integer('ap')->default('0');
 
 
 

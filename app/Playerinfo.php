@@ -9,7 +9,7 @@ class Playerinfo extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'account_id', 'overall_r', 'sf', 'lf', 'level', 'clan_id', 'karma'
+        'account_id', 'overall_r', 'sf', 'lf', 'level', 'clan_id', 'karma', 'ap'
     ];
 
     public function user()

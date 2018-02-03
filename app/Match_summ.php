@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Match_summ extends Model
 {
-    const CREATED_AT = 'created';
+    const CREATED_AT = 'created_at';
 
     protected $fillable = [
         'port', 'created_at', 'map', 'server_id'

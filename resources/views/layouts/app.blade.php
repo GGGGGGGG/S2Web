@@ -111,7 +111,7 @@
 <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
-
+@yield('extra_scripts')
 @include('layouts.footer')
 </body>
 </html>

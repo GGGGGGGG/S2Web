@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Badge;
+use App\Vote;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserRequest;
 
@@ -19,7 +22,18 @@ class UserController extends Controller
     public function show(User $user)
     {
         $user_matches = $user->actionplayers()->orderBy('match_id', 'desc')->paginate(10);
-        return view('user.show')->with('user', $user)->with('user_matches', $user_matches);
+
+        $avg_comm = Cache::remember('avg_comm_'.$user->id, 240, function () use ($user) {
+            return Vote::where('comm_id', $user->id)->avg('vote');
+        });
+
+        $ap = Cache::remember('ap_'.$user->id, 240, function () use ($user) {
+            return Badge::where('account_id', $user->id)->get();
+        });
+
+        $votes = Vote::where('comm_id', $user->id)->paginate(8);
+
+        return view('user.show', compact('user', 'user_matches', 'avg_comm', 'votes', 'ap'));
     }
 
     public function edit()

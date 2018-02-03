@@ -14,7 +14,6 @@
                 <li class="nav-item"><a class="nav-link" href="#hp_healed" data-toggle="tab">HP Healed</a></li>
                 <li class="nav-item"><a class="nav-link" href="#hp_repaired" data-toggle="tab">HP Repaired</a></li>
                 <li class="nav-item"><a class="nav-link" href="#kills" data-toggle="tab">Kills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#npcs" data-toggle="tab">NPC Killed</a></li>
             </ul>
             <div class="card-body">
                 <div id="my-tab-content" class="tab-content">
@@ -46,6 +45,7 @@
                             <tr>
                                 <th>Position:</th>
                                 <th>Username:</th>
+                                <th>Assist Factor:</th>
                                 <th>Assists:</th>
                             </tr>
                             </thead>
@@ -56,6 +56,7 @@
                                     <td>
                                         <a href="{{ route('user.show', $player->user->id) }}">{{ $player->user->username }}</a>
                                     </td>
+                                    <td>{{ $player->af }}</td>
                                     <td>{{ $player->assists }}</td>
                                 </tr>
                             @endforeach
@@ -68,6 +69,7 @@
                             <tr>
                                 <th>Position:</th>
                                 <th>Username:</th>
+                                <th>Building Damage Factor:</th>
                                 <th>Building Damage:</th>
                             </tr>
                             </thead>
@@ -78,6 +80,7 @@
                                     <td>
                                         <a href="{{ route('user.show', $player->user->id) }}">{{ $player->user->username }}</a>
                                     </td>
+                                    <td>{{ $player->bf }}</td>
                                     <td>{{ $player->bdmg }}</td>
                                 </tr>
                             @endforeach
@@ -90,6 +93,7 @@
                             <tr>
                                 <th>Position:</th>
                                 <th>Username:</th>
+                                <th>Healing Factor:</th>
                                 <th>HP Healed:</th>
                                 <th>Ressurection:</th>
                             </tr>
@@ -101,6 +105,7 @@
                                     <td>
                                         <a href="{{ route('user.show', $player->user->id) }}">{{ $player->user->username }}</a>
                                     </td>
+                                    <td>{{ $player->hf }}</td>
                                     <td>{{ $player->hp_healed }}</td>
                                     <td>{{ $player->res }}</td>
                                 </tr>
@@ -114,6 +119,7 @@
                             <tr>
                                 <th>Position:</th>
                                 <th>Username:</th>
+                                <th>Repair Factor:</th>
                                 <th>HP Repaired:</th>
                             </tr>
                             </thead>
@@ -124,6 +130,7 @@
                                     <td>
                                         <a href="{{ route('user.show', $player->user->id) }}">{{ $player->user->username }}</a>
                                     </td>
+                                    <td> {{ $player->rf }}</td>
                                     <td>{{ $player->hp_repaired }}</td>
                                 </tr>
                             @endforeach
@@ -136,6 +143,7 @@
                             <tr>
                                 <th>Position:</th>
                                 <th>Username:</th>
+                                <th>Kill Factor:</th>
                                 <th>Kills:</th>
                                 <th>Player Damage:</th>
                             </tr>
@@ -147,30 +155,9 @@
                                     <td>
                                         <a href="{{ route('user.show', $player->user->id) }}">{{ $player->user->username }}</a>
                                     </td>
+                                    <td>{{ $player->kf }}</td>
                                     <td>{{ $player->kills }}</td>
                                     <td>{{ $player->pdmg }}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane" id="npcs">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>Position:</th>
-                                <th>Username:</th>
-                                <th>NPC Killed:</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($npc as $player)
-                                <tr>
-                                    <th>{{ $loop->iteration }}</th>
-                                    <td>
-                                        <a href="{{ route('user.show', $player->user->id) }}">{{ $player->user->username }}</a>
-                                    </td>
-                                    <td>{{ $player->npc }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
