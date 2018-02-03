@@ -170,7 +170,9 @@
                                                     <a href="{{ route('user.show', $vote->user->id) }}">{{ $vote->user->username }}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('match.show', $vote->match->id) }}">{{ $vote->match->id }}</a>
+                                                    @if($vote->match)
+                                                        <a href="{{ route('match.show', $vote->match->id) }}">{{ $vote->match->id }}</a>
+                                                    @endif
                                                 </td>
                                                 <td>{{ $vote->vote }}</td>
                                                 <td>{{ $vote->reason }}</td>
