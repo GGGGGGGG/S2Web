@@ -24,4 +24,9 @@ class Match extends Model
     {
         return $this->hasMany('App\Team', 'match', 'id');
     }
+
+    public function actionplayers()
+    {
+        return $this->hasMany('App\Actionplayer', 'match_id', 'id');
+    }
 }

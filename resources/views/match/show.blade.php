@@ -84,6 +84,9 @@
                                                     <i class="game-icon game-icon-gold-bar style-stats"></i> Gold: {{ $actionplayer->gold }}<br>
                                                     <i class="game-icon game-icon-tinker style-stats"></i> Hp Repaired: {{ $actionplayer->hp_repaired }}<br>
                                                     <i class="game-icon game-icon-pocket-watch style-stats"></i> Time Played: {{ gmdate("H:i:s", $actionplayer->secs) }}<br>
+                                                    <div id="chart-div-{{ $actionplayer->user->id }}"></div>
+                                                    @piechart('Contribution-'.$actionplayer->user->id, 'chart-div-'. $actionplayer->user->id)
+
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>

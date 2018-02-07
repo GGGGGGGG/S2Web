@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Match;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Khill\Lavacharts\Lavacharts;
 
 class MatchController extends Controller
 {
@@ -29,6 +30,31 @@ class MatchController extends Controller
 
     public function show(Match $match)
     {
-        return view('match.show')->with('match', $match);
+
+        foreach($match->actionplayers as $actionplayer)
+        {
+            $data = \Lava::DataTable();
+
+            $data->addStringColumn('Stats')
+                ->addNumberColumn('Percent')
+                ->addRow(['Player Damage', $actionplayer->pdmg])
+                ->addRow(['Building Damage', $actionplayer->bdmg])
+                ->addRow(['Healing Done', $actionplayer->hp_healed])
+                ->addRow(['HP Repair', $actionplayer->hp_repaired]);
+
+            $piechart[] = \Lava::PieChart('Contribution-'.$actionplayer->user->id, $data, [
+                'title' => 'Your contribution in numbers',
+                'is3D' => true,
+                'slices' => [
+                    ['offset' => 0.2],
+                    ['offset' => 0.25],
+                    ['offset' => 0.3]
+                ]
+
+            ]);
+
+        }
+
+        return view('match.show', compact('match', 'piechart'));
     }
 }
