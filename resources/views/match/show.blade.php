@@ -195,8 +195,6 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                    <a data-toggle="modal" data-target="#modal-{{ $team->id }}">View Advanced
-                                        Stats</a><br>
 
                                     Average SF: {{ $team->avg_sf }}<br>
                                     @if($team->commander != 0)
@@ -205,6 +203,8 @@
                                         @php $commander = 0 @endphp
                                     @endif
                                     Player Count: {{ count($team->actionplayers) + $commander }}
+                                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ $team->id }}">View Advanced
+                                        Stats</a><br>
                                 </div>
                             </div>
                         </div>
