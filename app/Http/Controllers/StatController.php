@@ -83,14 +83,7 @@ class StatController extends Controller
                 ->groupBy('playerstats.account_id')->orderBy('af', 'desc')
                 ->havingRaw('total >= 10')->take(20)->get();
         });
-
-        $wr = Cache::remember('wr', 240, function () {
-            return Playerstat::select('playerstats.*', DB::raw('count(actionplayers.account_id) as total, playerstats.assists/(playerstats.secs/60) as af'))
-                ->join('actionplayers', 'actionplayers.account_id', '=', 'playerstats.account_id')
-                ->groupBy('playerstats.account_id')->orderBy('af', 'desc')
-                ->havingRaw('total >= 10')->take(20)->get();
-        });
-
+        
         return view('stats.leaderboards', compact('sf', 'hp_healed', 'bdmg', 'hp_repaired', 'kills',
             'assists'));
     }
