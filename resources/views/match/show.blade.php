@@ -225,7 +225,7 @@
                                         </div>
                                         <div class="card-body">
                                             <u>Most kills :</u> <br>
-                                            {{ $mostkills->user->username }}
+                                            <a href="{{ route("user.show", $mostkills->user->id) }}">{{ $mostkills->user->username }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -237,7 +237,7 @@
                                         </div>
                                         <div class="card-body">
                                             <u>Most experience : </u><br>
-                                            {{ $mostexp->user->username }}
+                                            <a href="{{ route("user.show", $mostexp->user->id) }}">{{ $mostexp->user->username }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@
                                         </div>
                                         <div class="card-body">
                                             <u>Most building damage : </u> <br>
-                                            {{ $mostbdmg->user->username }}
+                                            <a href="{{ route("user.show", $mostbdmg->user->id) }}">{{ $mostbdmg->user->username }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@
                                         </div>
                                         <div class="card-body">
                                             <u>Most experience :</u> <br>
-                                            {{ $mosthphealed->user->username }}
+                                            <a href="{{ route("user.show", $mosthphealed->user->id) }}">{{ $mosthphealed->user->username }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +271,7 @@
                                         </div>
                                         <div class="card-body">
                                             <u>Most npcs killed : </u> <br>
-                                            {{ $mostnpckilled->user->username }}
+                                            <a href="{{ route("user.show", $mostnpckilled->user->id) }}">{{ $mostnpckilled->user->username }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -282,7 +282,7 @@
                                         </div>
                                         <div class="card-body">
                                             <u>Least npcs killed : </u><br>
-                                            {{ $leastnpckilled->user->username }}
+                                            <a href="{{ route("user.show", $leastnpckilled->user->id) }}"> {{ $leastnpckilled->user->username }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -293,7 +293,7 @@
                                         </div>
                                         <div class="card-body">
                                             <u>Most deaths : </u> <br>
-                                            {{ $mostdeaths->user->username }}
+                                            <a href="{{ route("user.show", $mostdeaths->user->id) }}">{{ $mostdeaths->user->username }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -304,7 +304,7 @@
                                         </div>
                                         <div class="card-body">
                                             <u>Least kills : </u> <br>
-                                            {{ $leastkills->user->username }}
+                                            <a href="{{ route("user.show", $leastkills->user->id) }}">{{ $leastkills->user->username }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -315,7 +315,7 @@
                                         </div>
                                         <div class="card-body">
                                             <u>Most gold collected : </u> <br>
-                                            {{ $mostgold->user->username }}
+                                            <a href="{{ route("user.show", $mostgold->user->id) }}">{{ $mostgold->user->username }}</a>
                                         </div>
                                     </div>
                                 </div>

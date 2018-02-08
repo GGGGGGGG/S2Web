@@ -80,9 +80,7 @@ body > #testcontainer {
     padding-bottom: 190px;
 }
 
-@media (min-width: 768px) {
-    .modal-xl {
-        width: 90%;
-        max-width:1260px;
-    }
+.modal-xl {
+    max-width: 90%;
+    width: auto ;
 }
