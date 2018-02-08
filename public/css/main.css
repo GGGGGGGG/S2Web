@@ -56,6 +56,10 @@
     margin: 2px 2px 2px 2px;
 }
 
+.card-margin {
+    margin: 5px 5px 5px 5px;
+}
+
 footer {
     position: relative;
     margin-top: -190px !important;
@@ -74,4 +78,11 @@ body > #testcontainer {
 
 #main {
     padding-bottom: 190px;
+}
+
+@media (min-width: 768px) {
+    .modal-xl {
+        width: 90%;
+        max-width:1260px;
+    }
 }
