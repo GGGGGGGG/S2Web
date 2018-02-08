@@ -14,6 +14,7 @@
                 <li class="nav-item"><a class="nav-link" href="#hp_healed" data-toggle="tab">HP Healed</a></li>
                 <li class="nav-item"><a class="nav-link" href="#hp_repaired" data-toggle="tab">HP Repaired</a></li>
                 <li class="nav-item"><a class="nav-link" href="#kills" data-toggle="tab">Kills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#winrate" data-toggle="tab">Win Rate (Commanders)</a> </li>
             </ul>
             <div class="card-body">
                 <div id="my-tab-content" class="tab-content">
@@ -158,6 +159,32 @@
                                     <td>{{ $player->kf }}</td>
                                     <td>{{ $player->kills }}</td>
                                     <td>{{ $player->pdmg }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="winrate">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Position:</th>
+                                <th>Username:</th>
+                                <th>Kill Factor:</th>
+                                <th>Kills:</th>
+                                <th>Player Damage:</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($wr as $commander)
+                                <tr>
+                                    <th>{{ $loop->iteration }}</th>
+                                    <td>
+                                        <a href="{{ route('user.show', $commander->user->id) }}">{{ $commander->user->username }}</a>
+                                    </td>
+                                    <td>{{ $commander->wr }}</td>
+                                    <td>{{ $commander->wins}}</td>
+                                    <td>{{ $commander->losses }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
